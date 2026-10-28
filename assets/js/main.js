@@ -23,9 +23,9 @@ if (menuToggle && siteNav) {
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 if ("IntersectionObserver" in window && !prefersReducedMotion) {
-  const groupItems = ".card, .bubble, .steps li, .checklist li, .ways li";
+  const groupItems = ".card, .bubble, .steps li, .checklist li, .ways li, .person";
   const blocks = document.querySelectorAll(
-    `main .section .container > :not(.card-grid):not(.bubbles):not(.steps):not(.checklist):not(.ways), ${groupItems}`
+    `main .section .container > :not(.card-grid):not(.bubbles):not(.steps):not(.checklist):not(.ways):not(.people), ${groupItems}`
   );
 
   const observer = new IntersectionObserver(
