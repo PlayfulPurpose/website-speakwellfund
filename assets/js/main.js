@@ -1,8 +1,8 @@
 // Speak Well Fund: mobile menu, footer year and the sign-up form.
 
-// Paste the Formspree endpoint here, e.g. "https://formspree.io/f/abcdwxyz".
-// While it's empty the form shows the thank-you message without sending anything.
-const FORM_ENDPOINT = "";
+// The Formspree form that receives sign-ups (the "Speak Well Fund" form in Julie's account).
+// If this is ever emptied, the form shows the thank-you message without sending anything.
+const FORM_ENDPOINT = "https://formspree.io/f/mqppbkzo";
 
 document.querySelectorAll("[data-year]").forEach((el) => {
   el.textContent = new Date().getFullYear();
