@@ -705,16 +705,30 @@ strong {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 56% 40%;
+}
+
+.person-open {
+  --tint: var(--light);
+  --tint: color-mix(in srgb, var(--theme) 14%, var(--white));
 }
 
 .person-open .person-photo {
-  background: var(--light);
-  background: color-mix(in srgb, var(--theme) 14%, var(--white));
+  background: var(--tint);
 }
 
 .person-open svg {
-  width: 82%;
+  width: 88%;
   fill: var(--theme);
+}
+
+/* Thin lines in the background tint mark the face, hairline and jaw, so the hair reads. */
+.person-open svg .line {
+  fill: none;
+  stroke: var(--tint);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .person-body {
