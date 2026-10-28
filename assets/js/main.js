@@ -1,9 +1,5 @@
 // Speak Well Fund: mobile menu, footer year and the sign-up form.
 
-// The Formspree form that receives sign-ups (the "Speak Well Fund" form in Julie's account).
-// If this is ever emptied, the form shows the thank-you message without sending anything.
-const FORM_ENDPOINT = "https://formspree.io/f/mqppbkzo";
-
 document.querySelectorAll("[data-year]").forEach((el) => {
   el.textContent = new Date().getFullYear();
 });
@@ -105,21 +101,17 @@ if (form) {
     thanks.focus();
   };
 
+  // Sign-ups go to the Formspree form in the form's action attribute (get-involved.html).
+  // Sending it here keeps people on the page; without JavaScript the browser posts it there directly.
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const data = new FormData(form);
     const path = data.get("path");
     errorBox.hidden = true;
 
-    if (!FORM_ENDPOINT) {
-      console.warn("Speak Well Fund: no form endpoint set yet, so this sign-up wasn't sent.");
-      showThanks(path);
-      return;
-    }
-
     submitButton.disabled = true;
     try {
-      const response = await fetch(FORM_ENDPOINT, {
+      const response = await fetch(form.action, {
         method: "POST",
         body: data,
         headers: { Accept: "application/json" },

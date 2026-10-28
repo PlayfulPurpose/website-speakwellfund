@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://formspree.io; form-action https://formspree.io; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Get involved · Speak Well Fund</title>
   <meta name="description" content="Help build a fund that pays speakers, or join the list to hear what happens next.">
   <meta property="og:title" content="Get involved · Speak Well Fund">
@@ -63,7 +65,7 @@
     <section class="section section-grey" id="sign-up">
       <div class="container">
         <div class="form-wrap">
-          <form id="signup-form">
+          <form id="signup-form" action="https://formspree.io/f/mqppbkzo" method="post">
             <fieldset class="path-choice">
               <legend>What would you like to do?</legend>
               <div class="path-options">

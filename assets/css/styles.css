@@ -722,6 +722,12 @@ strong {
   fill: var(--theme);
 }
 
+.person-open svg .hoop {
+  fill: none;
+  stroke: var(--theme);
+  stroke-width: 4;
+}
+
 /* Thin lines in the background tint mark the face, hairline and jaw, so the hair reads. */
 .person-open svg .line {
   fill: none;
