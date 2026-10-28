@@ -1,0 +1,1071 @@
+/* Speak Well Fund
+   White space and big Poppins type, with bold blocks of colour for energy.
+   Every colour and size lives in :root so it's easy to change. */
+
+:root {
+  --text: #1d1d1f;
+  --grey: #6e6e73;
+  --white: #ffffff;
+  --light: #f5f5f7;
+  --line: #d2d2d7;
+
+  /* Each stakeholder has a colour: speakers blue, organisations purple, fund builders green.
+     Orange and yellow are only for section backgrounds. White text on blue, purple and green;
+     dark text on orange and yellow. */
+  --blue: #0071e3;
+  --purple: #6e3bff;
+  --green: #00845a;
+  --orange: #ff8a1f;
+  --yellow: #ffc83d;
+
+  /* The page's stakeholder colour. Pages that aren't about one stakeholder use blue. */
+  --theme: var(--blue);
+
+  /* The rainbow on headline words like "paid for it." Pink appears only here. */
+  --gradient: linear-gradient(120deg, var(--blue), var(--purple) 50%, #ff4f8b);
+  --gradient-panel: linear-gradient(135deg, var(--blue), var(--purple));
+
+  /* Cards, bubbles and list items use --surface, which flips to white inside grey sections. */
+  --surface: var(--light);
+
+  --font: "Poppins", system-ui, sans-serif;
+  --radius-button: 980px;
+  --radius-card: 28px;
+  --radius-field: 12px;
+
+  --ease: cubic-bezier(0.4, 0, 0.6, 1);
+  --fast: 240ms;
+  --slow: 500ms;
+
+  --container: 1080px;
+  --narrow: 720px;
+  --space-section: clamp(5.5rem, 12vw, 10rem);
+}
+
+/* Base */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 0.45em;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+strong {
+  font-weight: 600;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  color: var(--white);
+  background: var(--text);
+  border-radius: 0 0 12px 12px;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Scroll reveal: main.js adds .reveal to blocks, then .is-visible as they scroll into view. */
+.js-reveal .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity var(--slow) var(--ease), transform var(--slow) var(--ease);
+}
+
+.js-reveal .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Layout */
+
+.container {
+  width: min(var(--container), 100% - 2.5rem);
+  margin-inline: auto;
+}
+
+.container.narrow {
+  width: min(var(--narrow), 100% - 2.5rem);
+}
+
+.section {
+  padding: var(--space-section) 0;
+}
+
+.section-grey {
+  --surface: var(--white);
+  background: var(--light);
+}
+
+.section-yellow {
+  background: var(--yellow);
+}
+
+.section-orange {
+  background: var(--orange);
+}
+
+.theme-speakers {
+  --theme: var(--blue);
+}
+
+.theme-organisations {
+  --theme: var(--purple);
+}
+
+.theme-fund {
+  --theme: var(--green);
+}
+
+.section-gradient {
+  color: var(--white);
+  background: var(--gradient-panel);
+}
+
+.center {
+  text-align: center;
+}
+
+/* Type */
+
+.display-1 {
+  font-size: clamp(2.5rem, 6.5vw, 5.25rem);
+}
+
+.display-2 {
+  font-size: clamp(2.125rem, 5vw, 3.75rem);
+}
+
+.gradient-text {
+  color: var(--purple);
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.theme-text {
+  color: var(--theme);
+}
+
+/* Eyebrows use the three-colour gradient, or the stakeholder colour on that stakeholder's page. */
+.eyebrow {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: var(--purple);
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.theme-speakers .eyebrow,
+.theme-organisations .eyebrow,
+.theme-fund .eyebrow {
+  color: var(--theme);
+  background: none;
+  -webkit-text-fill-color: currentColor;
+}
+
+.section-yellow .eyebrow,
+.section-orange .eyebrow,
+.section-gradient .eyebrow {
+  color: inherit;
+  background: none;
+  -webkit-text-fill-color: currentColor;
+}
+
+.lede {
+  max-width: 34ch;
+  margin-inline: auto;
+  font-size: clamp(1.1875rem, 2vw, 1.3125rem);
+  line-height: 1.5;
+  color: var(--grey);
+}
+
+.body-text {
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--grey);
+}
+
+.center .body-text {
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+.section-yellow .body-text,
+.section-orange .body-text {
+  color: var(--text);
+}
+
+.section-gradient .lede,
+.section-gradient .body-text {
+  color: var(--white);
+}
+
+/* Buttons and links */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  color: var(--blue);
+  background: transparent;
+  border: 1.5px solid currentColor;
+  border-radius: var(--radius-button);
+  cursor: pointer;
+  transition: background-color var(--fast) var(--ease), color var(--fast) var(--ease), transform var(--fast) var(--ease), opacity var(--fast) var(--ease);
+}
+
+.btn:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  color: var(--white);
+  background: var(--theme);
+  border-color: var(--theme);
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-secondary:hover {
+  color: var(--white);
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.btn-light {
+  color: var(--purple);
+  background: var(--white);
+  border-color: var(--white);
+}
+
+.btn-outline-white {
+  color: var(--white);
+}
+
+.btn-outline-white:hover {
+  color: var(--purple);
+  background: var(--white);
+  border-color: var(--white);
+}
+
+.btn-small {
+  padding: 8px 16px;
+  font-size: 0.875rem;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: wait;
+  transform: none;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2.25rem;
+}
+
+.text-link {
+  font-weight: 600;
+}
+
+/* Header */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.82);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.brand img {
+  width: 42px;
+  height: 42px;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+}
+
+.site-nav a:not(.btn) {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text);
+  opacity: 0.75;
+  transition: opacity var(--fast) var(--ease);
+}
+
+.site-nav a:not(.btn):hover,
+.site-nav a[aria-current="page"] {
+  text-decoration: none;
+  opacity: 1;
+}
+
+.site-nav a[aria-current="page"] {
+  font-weight: 600;
+}
+
+.menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.menu-bars,
+.menu-bars::before,
+.menu-bars::after {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+}
+
+.menu-bars {
+  position: relative;
+}
+
+.menu-bars::before,
+.menu-bars::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.menu-bars::before {
+  top: -6px;
+}
+
+.menu-bars::after {
+  top: 6px;
+}
+
+@media (max-width: 760px) {
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .site-nav {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.5rem 1.25rem 1.5rem;
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity var(--slow) var(--ease), transform var(--slow) var(--ease), visibility 0s linear var(--slow);
+  }
+
+  .site-nav.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: opacity var(--slow) var(--ease), transform var(--slow) var(--ease);
+  }
+
+  .site-nav a:not(.btn) {
+    padding: 1rem 0;
+    font-size: 1.0625rem;
+    opacity: 1;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .site-nav .btn {
+    margin-top: 1.25rem;
+    padding: 14px 24px;
+    font-size: 1rem;
+  }
+}
+
+/* Heroes */
+
+.hero,
+.page-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* A soft wash of the brand colours behind the hero text. */
+.hero::before,
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(32% 42% at 18% 28%, rgba(0, 113, 227, 0.16), transparent 70%),
+    radial-gradient(30% 40% at 84% 22%, rgba(0, 132, 90, 0.12), transparent 70%),
+    radial-gradient(34% 44% at 70% 78%, rgba(255, 200, 61, 0.22), transparent 70%),
+    radial-gradient(30% 40% at 28% 80%, rgba(110, 59, 255, 0.13), transparent 70%);
+}
+
+.hero {
+  padding: clamp(3.5rem, 8vw, 6rem) 0 var(--space-section);
+}
+
+.page-hero {
+  padding: clamp(5rem, 11vw, 8.5rem) 0 clamp(4rem, 9vw, 7rem);
+}
+
+.hero .container > *,
+.page-hero .container > * {
+  animation: fade-up var(--slow) var(--ease) both;
+}
+
+.hero .container > :nth-child(2),
+.page-hero .container > :nth-child(2) {
+  animation-delay: 120ms;
+}
+
+.hero .container > :nth-child(3),
+.page-hero .container > :nth-child(3) {
+  animation-delay: 240ms;
+}
+
+.hero .container > :nth-child(4),
+.page-hero .container > :nth-child(4) {
+  animation-delay: 360ms;
+}
+
+.hero-logo {
+  width: clamp(170px, 24vw, 240px);
+  margin: 0 auto 2.5rem;
+}
+
+.hero-title span {
+  display: block;
+}
+
+.page-hero .body-text {
+  max-width: 600px;
+  margin: 1.5rem auto 0;
+}
+
+/* Cards */
+
+.section-heading {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.card-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+/* From tablet width up, every card sits side by side. */
+@media (min-width: 700px) {
+  .card-grid {
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+  }
+}
+
+/* On phones, a card row becomes a swipeable strip instead of a stack. */
+@media (max-width: 699px) {
+  .card-row {
+    display: flex;
+    gap: 1rem;
+    margin-inline: -1.25rem;
+    padding: 0 1.25rem 0.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 1.25rem;
+    scrollbar-width: none;
+  }
+
+  .card-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card-row > * {
+    flex: 0 0 82%;
+    scroll-snap-align: start;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  padding: 2.25rem 2rem;
+  background: var(--surface);
+  border-radius: var(--radius-card);
+  transition: transform var(--fast) var(--ease);
+}
+
+.card p {
+  flex: 1;
+  color: var(--grey);
+}
+
+.card .eyebrow {
+  flex: none;
+  margin-bottom: 0.5rem;
+}
+
+.card-blue,
+.card-purple,
+.card-green {
+  color: var(--white);
+}
+
+.card-blue {
+  background: var(--blue);
+}
+
+.card-purple {
+  background: var(--purple);
+}
+
+.card-green {
+  background: var(--green);
+}
+
+.card-blue p,
+.card-purple p,
+.card-green p,
+.card-blue .text-link,
+.card-purple .text-link,
+.card-green .text-link {
+  color: inherit;
+}
+
+.card-row .card:hover {
+  transform: translateY(-4px);
+}
+
+/* Founder note on the About page */
+
+.founder-note {
+  position: relative;
+  overflow: hidden;
+  margin: 2.5rem 0;
+  padding: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.125rem, 2vw, 1.3125rem);
+  line-height: 1.65;
+  background: var(--surface);
+  border-radius: var(--radius-card);
+}
+
+/* A rainbow bar down the left edge. */
+.founder-note::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 8px;
+  background: linear-gradient(180deg, var(--blue), var(--purple) 50%, #ff4f8b);
+}
+
+.founder-note p:last-child {
+  margin-bottom: 0;
+}
+
+/* Speech bubbles */
+
+.bubbles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: 2.25rem 1.25rem;
+  margin: 0 0 3rem;
+}
+
+.bubble {
+  position: relative;
+  margin: 0;
+  padding: 1.75rem 2rem;
+  font-size: 1.1875rem;
+  font-weight: 500;
+  line-height: 1.5;
+  background: var(--surface);
+  border: 2px solid var(--theme);
+  border-radius: var(--radius-card);
+}
+
+.bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 40px;
+  width: 22px;
+  height: 22px;
+  background: inherit;
+  border-right: 2px solid var(--theme);
+  border-bottom: 2px solid var(--theme);
+  transform: rotate(45deg);
+}
+
+/* Lists */
+
+.checklist,
+.steps {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0 0 2.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.checklist li,
+.steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  font-weight: 500;
+  background: var(--surface);
+  border-radius: var(--radius-card);
+}
+
+.checklist li::before,
+.steps li::before {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--theme);
+  border-radius: 50%;
+}
+
+.checklist li::before {
+  content: "";
+  background: var(--theme) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4L18 8.5' fill='none' stroke='%23ffffff' stroke-width='2.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 70% no-repeat;
+}
+
+.steps {
+  counter-reset: step;
+}
+
+.steps li {
+  counter-increment: step;
+}
+
+.steps li::before {
+  content: counter(step);
+}
+
+.ways {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ways li {
+  padding: 2rem;
+  background: var(--surface);
+  border-radius: var(--radius-card);
+}
+
+/* Each way to get involved carries the colour of the stakeholder it's for. */
+.ways li::before {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 6px;
+  margin-bottom: 1.25rem;
+  background: var(--orange);
+  border-radius: var(--radius-button);
+}
+
+.ways .for-speakers::before {
+  background: var(--blue);
+}
+
+.ways .for-organisations::before {
+  background: var(--purple);
+}
+
+.ways .for-fund::before {
+  background: var(--green);
+}
+
+.ways strong {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 1.1875rem;
+  line-height: 1.35;
+}
+
+.ways span {
+  color: var(--grey);
+}
+
+/* Form */
+
+.form-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(1.75rem, 5vw, 3.5rem);
+  background: var(--white);
+  border-radius: var(--radius-card);
+}
+
+.form-wrap fieldset {
+  margin: 0 0 2rem;
+  padding: 0;
+  border: 0;
+}
+
+.form-wrap legend,
+.field label {
+  margin-bottom: 0.6rem;
+  padding: 0;
+  font-weight: 600;
+}
+
+.path-choice legend {
+  margin-bottom: 1.25rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.path-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 1rem;
+}
+
+.path-option,
+.chip {
+  position: relative;
+  cursor: pointer;
+}
+
+.path-option input,
+.chip input {
+  position: absolute;
+  opacity: 0;
+}
+
+.path-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  height: 100%;
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  box-shadow: inset 0 0 0 1px transparent;
+  transition: border-color var(--fast) var(--ease), box-shadow var(--fast) var(--ease);
+}
+
+.path-card strong {
+  font-size: 1.125rem;
+}
+
+.path-card span {
+  font-size: 0.95rem;
+  color: var(--grey);
+}
+
+.path-option input:checked + .path-card {
+  border-color: var(--blue);
+  box-shadow: inset 0 0 0 1px var(--blue);
+}
+
+.path-option input:focus-visible + .path-card,
+.chip input:focus-visible + span {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+[data-build-only]:not([hidden]) {
+  animation: fade-up var(--slow) var(--ease);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.75rem;
+}
+
+.hint {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--grey);
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font: inherit;
+  color: var(--text);
+  background: var(--light);
+  border: 1px solid transparent;
+  border-radius: var(--radius-field);
+  transition: border-color var(--fast) var(--ease), background-color var(--fast) var(--ease);
+}
+
+.field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus {
+  background: var(--white);
+  border-color: var(--blue);
+  outline: 3px solid rgba(0, 113, 227, 0.2);
+  outline-offset: 0;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.chip span {
+  display: inline-block;
+  padding: 9px 16px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  background: var(--light);
+  border-radius: var(--radius-button);
+  transition: background-color var(--fast) var(--ease), color var(--fast) var(--ease);
+}
+
+.chip input:checked + span {
+  color: var(--white);
+  background: var(--text);
+}
+
+.chip-speaker input:checked + span {
+  background: var(--blue);
+}
+
+.chip-organisation input:checked + span {
+  background: var(--purple);
+}
+
+.chip-fund input:checked + span {
+  background: var(--green);
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+}
+
+.form-note {
+  margin: 1.25rem 0 0;
+  font-size: 0.875rem;
+  color: var(--grey);
+}
+
+.form-error {
+  margin-top: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--light);
+  border: 1px solid var(--orange);
+  border-radius: var(--radius-field);
+}
+
+.form-thanks {
+  padding: 2rem 0;
+  text-align: center;
+  animation: fade-up var(--slow) var(--ease);
+}
+
+.form-thanks p {
+  margin-bottom: 0;
+}
+
+/* Footer */
+
+.site-footer {
+  position: relative;
+  padding: 3.5rem 0 2.5rem;
+  text-align: center;
+  background: var(--light);
+}
+
+/* A thin strip of the brand colours along the top of the footer. */
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--blue), var(--purple), var(--green), var(--orange), var(--yellow));
+}
+
+.footer-logo {
+  width: 72px;
+  margin: 0 auto 1.25rem;
+}
+
+.footer-line {
+  max-width: 40ch;
+  margin: 0 auto 1.25rem;
+  color: var(--grey);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.75rem;
+  margin-bottom: 2rem;
+  font-size: 0.875rem;
+}
+
+.footer-links a {
+  font-weight: 500;
+  color: var(--grey);
+}
+
+.footer-links a:hover {
+  color: var(--text);
+}
+
+.footer-small {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--grey);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

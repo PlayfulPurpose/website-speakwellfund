@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get involved · Speak Well Fund</title>
+  <meta name="description" content="Help build a fund that pays speakers, or join the list to hear what happens next.">
+  <meta property="og:title" content="Get involved · Speak Well Fund">
+  <meta property="og:description" content="Help build a fund that pays speakers, or join the list to hear what happens next.">
+  <meta property="og:image" content="https://speakwellfund.com/assets/img/logo.png">
+  <meta name="theme-color" content="#FFFFFF">
+  <link rel="icon" type="image/png" href="assets/img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Speak Well Fund home">
+        <img src="assets/img/logo.png" alt="" width="42" height="42">
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="menu-bars"></span>
+        <span class="sr-only">Menu</span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <a href="speakers.html">Speakers</a>
+        <a href="organisations.html">Organisations</a>
+        <a href="fund.html">The Fund</a>
+        <a href="about.html">About</a>
+        <a class="btn btn-primary btn-small" href="get-involved.html" aria-current="page">Get involved</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container narrow">
+        <p class="eyebrow">Get involved</p>
+        <h1 class="display-1">Let's build this <span class="gradient-text">together.</span></h1>
+        <p class="lede">Whether you want to roll up your sleeves or you'd just like to hear how it's going, we'd love to have you.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="display-2 center section-heading">Ways to get involved</h2>
+        <ul class="ways">
+          <li class="for-speakers"><strong>Join the founding speaker circle</strong><span>Be one of the first voices in the community.</span></li>
+          <li class="for-fund"><strong>Help design the perpetual fund</strong><span>Bring your experience in finance, philanthropy, grants, law or events.</span></li>
+          <li class="for-organisations"><strong>Help shape the Speak Well Pledge</strong><span>Tell us what good looks like for organisations.</span></li>
+          <li class="for-speakers"><strong>Share your story</strong><span>Tell us what being asked to speak for free has looked like for you.</span></li>
+          <li><strong>Spread the word</strong><span>Pass this on to someone who'd care about it.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section-grey" id="sign-up">
+      <div class="container">
+        <div class="form-wrap">
+          <form id="signup-form">
+            <fieldset class="path-choice">
+              <legend>What would you like to do?</legend>
+              <div class="path-options">
+                <label class="path-option">
+                  <input type="radio" name="path" value="build" checked>
+                  <span class="path-card">
+                    <strong>I want to help build this</strong>
+                    <span>Join the founding community and tell us what you could bring.</span>
+                  </span>
+                </label>
+                <label class="path-option">
+                  <input type="radio" name="path" value="updates">
+                  <span class="path-card">
+                    <strong>Just keep me posted</strong>
+                    <span>Leave your email and we'll let you know when there's news.</span>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+
+            <div data-build-only>
+              <fieldset>
+                <legend>I'm a… <span class="hint">Tick any that fit.</span></legend>
+                <div class="chips">
+                  <label class="chip chip-speaker"><input type="checkbox" name="role" value="Speaker"><span>Speaker</span></label>
+                  <label class="chip chip-organisation"><input type="checkbox" name="role" value="Books or organises speakers"><span>I book or organise speakers</span></label>
+                  <label class="chip chip-fund"><input type="checkbox" name="role" value="Has ideas for the fund"><span>I've got ideas for the fund</span></label>
+                  <label class="chip"><input type="checkbox" name="role" value="Something else"><span>Something else</span></label>
+                </div>
+              </fieldset>
+
+              <div class="field">
+                <label for="how">How would you like to get involved?</label>
+                <textarea id="how" name="how_to_get_involved"></textarea>
+              </div>
+              <div class="field">
+                <label for="bring">What could you bring? <span class="hint">Skills, connections, ideas, time, anything at all.</span></label>
+                <textarea id="bring" name="what_you_could_bring"></textarea>
+              </div>
+
+              <fieldset>
+                <legend>In the last 12 months, how often have you been asked to speak unpaid? <span class="hint">Optional.</span></legend>
+                <div class="chips">
+                  <label class="chip"><input type="radio" name="asked_to_speak_unpaid" value="Never"><span>Never</span></label>
+                  <label class="chip"><input type="radio" name="asked_to_speak_unpaid" value="Once or twice"><span>Once or twice</span></label>
+                  <label class="chip"><input type="radio" name="asked_to_speak_unpaid" value="3 to 5 times"><span>3 to 5 times</span></label>
+                  <label class="chip"><input type="radio" name="asked_to_speak_unpaid" value="More than 5 times"><span>More than 5 times</span></label>
+                </div>
+              </fieldset>
+
+              <div class="field">
+                <label for="else">Anything else you'd like to tell us?</label>
+                <textarea id="else" name="anything_else"></textarea>
+              </div>
+            </div>
+
+            <input type="hidden" name="_subject" value="New Speak Well Fund sign-up">
+            <div class="honeypot" aria-hidden="true">
+              <label for="gotcha">Leave this empty</label>
+              <input id="gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+            </div>
+
+            <button class="btn btn-primary" type="submit">Count me in</button>
+            <p class="form-note">We'll only use your details to keep in touch about Speak Well Fund, and you can unsubscribe whenever you like.</p>
+            <p class="form-error" role="alert" data-form-error hidden>Sorry, something went wrong sending that. Please try again, or email us at <a href="mailto:hello@speakwellfund.com">hello@speakwellfund.com</a>.</p>
+          </form>
+
+          <div class="form-thanks" data-form-thanks tabindex="-1" hidden>
+            <p class="eyebrow">Thank you</p>
+            <h2 class="display-2" data-thanks-title></h2>
+            <p class="body-text" data-thanks-text></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <img class="footer-logo" src="assets/img/logo.png" alt="Speak Well Fund" width="72" height="72">
+      <p class="footer-line">Speak Well Fund is just getting started, and we'd love you to help shape it.</p>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="speakers.html">Speakers</a>
+        <a href="organisations.html">Organisations</a>
+        <a href="fund.html">The Fund</a>
+        <a href="about.html">About</a>
+        <a href="get-involved.html">Get involved</a>
+        <a href="mailto:hello@speakwellfund.com">hello@speakwellfund.com</a>
+      </nav>
+      <p class="footer-small">© <span data-year>2026</span> Speak Well Fund</p>
+    </div>
+  </footer>
+</body>
+</html>
